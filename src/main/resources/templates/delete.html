@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a student</title>
+</head>
+<body>
+<form action="#" th:action="@{/student/delete}" th:object="${student}" method="post">
+    Student ID: <input type="text" th:field="*{id}"/><br>
+    Student name: <input type="text" th:field="*{name}"/><br>
+    Student surname: <input type="text" th:field="*{surname}"/><br>
+    <input type="submit" value="delete">
+    <a href="/student">go to index page</a>
+</form>
+</body>
+</html>

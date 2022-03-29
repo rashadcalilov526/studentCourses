@@ -6,16 +6,22 @@
 </head>
 <body>
 <h2>Student portal</h2>
-<a href="/student/new">Add Student</a>
+<a href="/student/new">Add Student</a><br/>
+<a href="/course/newCourse">Add Course</a><br/>
+<a href="/course/courseList">All courses</a>
 <br/>
 <a href="/student/list">Student List</a>
 <form action="/student/update" method="get">
     Update student with id <input type="text" name="id">
     <input type="submit" value="Search">
 </form>
-<form action="/student/delete" method="post">
+<form action="/student/delete" method="get">
     delete student with id <input type="text" name="id">
     <input type="submit" value="Search">
+</form>
+<form action="/student/name" method="get">
+    Enter name<input type="text" name="name">
+    <input type="submit" value="Find by name">
 </form>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a student</title>
+</head>
+<body>
+<form action="#" th:action="@{/course/saveCourse}" th:object="${course}" method="post">
+
+    Course ID: <input type="text" th:field="*{id}"/><br>
+    Course name: <input type="text" th:field="*{name}"/><br>
+    Course description: <input type="text" th:field="*{description}"/><br>
+    <button type="submit" class="btn btn-primary">Add</button>
+
+</form>
+</body>
+</html>

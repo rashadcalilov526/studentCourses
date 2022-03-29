@@ -6,16 +6,14 @@ import com.example.demo3.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/student")
-public class HelloWorldController {
+public class StudentController {
     @Autowired
     StudentRepository studentRepository;
     @Autowired
@@ -69,6 +67,19 @@ public class HelloWorldController {
     public String delete(Model model,Student student){
         studentRepository.delete(student);
         Iterable<Student> students=studentRepository.findAll();
+        model.addAttribute("students",students);
+        return "list";
+    }
+    @GetMapping("/name")
+    public String getStudentByName(Model model,@RequestParam String name)
+    {
+        List<Student> students=studentRepository.findByName(name);
+        model.addAttribute("students",students);
+        return "list";
+    }
+    @GetMapping("/surname/{surname}")
+    public String getStudentBySurname(Model model, @PathVariable String surname){
+        List<Student> students=studentRepository.getStudentBySurname(surname);
         model.addAttribute("students",students);
         return "list";
     }
